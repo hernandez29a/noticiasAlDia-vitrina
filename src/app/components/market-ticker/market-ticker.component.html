@@ -1,0 +1,25 @@
+<div class="bg-surface-container-lowest border-b border-outline-variant/30 overflow-hidden relative shadow-sm">
+  <div class="flex animate-marquee py-2 whitespace-nowrap min-w-max hover:[animation-play-state:paused]">
+    <div *ngFor="let m of marketData" class="flex items-center gap-2 px-6 border-r border-outline-variant/30 last:border-0 cursor-default">
+      <span class="font-semibold text-sm text-primary tracking-wide">{{ m.symbol }}</span>
+      <span class="text-sm font-mono" [ngClass]="m.changePercent >= 0 ? 'text-green-600' : 'text-red-600'">
+        {{ m.value | number:'1.2-2' }}
+      </span>
+      <span class="text-xs font-medium px-1.5 py-0.5 rounded-full"
+            [ngClass]="m.changePercent >= 0 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'">
+        {{ m.changePercent > 0 ? '+' : '' }}{{ m.changePercent }}%
+      </span>
+    </div>
+    <!-- Duplicate for seamless loop -->
+    <div *ngFor="let m of marketData" class="flex items-center gap-2 px-6 border-r border-outline-variant/30 last:border-0 cursor-default">
+      <span class="font-semibold text-sm text-primary tracking-wide">{{ m.symbol }}</span>
+      <span class="text-sm font-mono" [ngClass]="m.changePercent >= 0 ? 'text-green-600' : 'text-red-600'">
+        {{ m.value | number:'1.2-2' }}
+      </span>
+      <span class="text-xs font-medium px-1.5 py-0.5 rounded-full"
+            [ngClass]="m.changePercent >= 0 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'">
+        {{ m.changePercent > 0 ? '+' : '' }}{{ m.changePercent }}%
+      </span>
+    </div>
+  </div>
+</div>
