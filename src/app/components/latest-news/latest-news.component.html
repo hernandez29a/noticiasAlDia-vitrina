@@ -1,12 +1,12 @@
 <h2 class="text-xl font-display font-bold mb-6 pb-2 border-b-2 border-primary inline-block">Último Minuto</h2>
 <div class="flex flex-col gap-6">
-  <article *ngFor="let item of latest" class="group cursor-pointer">
+  <article *ngFor="let item of news" [routerLink]="['/', item.slug]" class="group cursor-pointer">
     <div class="flex items-start gap-4">
-      <div class="text-tertiary-container font-bold text-sm mt-1 w-12 shrink-0">
-        {{ item.timestamp | date:'HH:mm' }}
+      <div class="text-tertiary-container font-bold text-sm mt-1 w-16 shrink-0">
+        {{ item.published_at | date:'shortTime' }}
       </div>
       <div>
-        <span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1 block">{{ item.category }}</span>
+        <span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1 block">{{ item.categories || 'Noticias' }}</span>
         <h4 class="font-bold text-primary leading-tight group-hover:text-blue-700 transition-colors">
           {{ item.title }}
         </h4>

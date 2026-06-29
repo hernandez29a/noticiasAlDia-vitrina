@@ -1,20 +1,20 @@
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-  <article *ngFor="let item of articles" class="group cursor-pointer flex flex-col gap-4">
+  <article *ngFor="let item of news" [routerLink]="['/', item.slug]" class="group cursor-pointer flex flex-col gap-4">
     <div class="w-full h-48 overflow-hidden rounded-lg shadow-sm">
-      <img [src]="item.image" alt="{{ item.title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+      <img [src]="item.cover_image_url || 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=800&q=80'" alt="{{ item.title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
     </div>
     <div>
-      <span class="text-xs font-bold uppercase tracking-widest text-tertiary-container mb-2 block">{{ item.category }}</span>
-      <h3 class="font-display text-xl font-bold text-primary mb-2 leading-snug group-hover:text-blue-700 transition-colors">
+      <span class="text-xs font-bold uppercase tracking-widest text-tertiary-container mb-2 block">{{ item.categories || 'Noticias' }}</span>
+      <h3 class="font-display text-xl font-bold text-primary mb-2 leading-snug group-hover:text-blue-700 transition-colors line-clamp-3">
         {{ item.title }}
       </h3>
-      <p class="text-on-surface-variant text-sm line-clamp-3 mb-3">
-        {{ item.summary }}
-      </p>
-      <div class="flex items-center text-xs text-on-surface-variant font-medium">
-        <span>{{ item.author }}</span>
+      <div class="flex items-center text-xs text-on-surface-variant font-medium mt-auto pt-2">
+        <span class="font-bold flex items-center gap-1">
+            <span *ngIf="item.is_ai_generated" class="w-2 h-2 rounded-full bg-blue-500 inline-block"></span>
+            {{ item.is_ai_generated ? 'Robot' : 'Redacción' }}
+        </span>
         <span class="mx-2">•</span>
-        <span>{{ item.timestamp | date:'mediumDate' }}</span>
+        <span>{{ item.published_at | date:'mediumDate' }}</span>
       </div>
     </div>
   </article>

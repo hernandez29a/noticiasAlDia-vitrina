@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { latestNews } from '../../core/data';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-latest-news',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './latest-news.component.html'
 })
 export class LatestNewsComponent {
-  latest = latestNews;
+  @Input() news: any[] = [];
 }

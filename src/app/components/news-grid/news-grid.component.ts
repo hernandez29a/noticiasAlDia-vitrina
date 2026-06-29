@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { newsArticles } from '../../core/data';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-news-grid',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './news-grid.component.html'
 })
 export class NewsGridComponent {
-  articles = newsArticles.filter(n => !n.isFeatured);
+  @Input() news: any[] = [];
 }

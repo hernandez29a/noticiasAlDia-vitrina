@@ -4,24 +4,7 @@
   <app-market-ticker></app-market-ticker>
 
   <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-      
-      <!-- Left Column (Main News) -->
-      <div class="lg:col-span-8 flex flex-col gap-10">
-        <app-hero-article></app-hero-article>
-        
-        <div class="border-t border-outline-variant/30 pt-8">
-          <h2 class="text-2xl font-display font-bold mb-6 text-primary">Más Leídas</h2>
-          <app-news-grid></app-news-grid>
-        </div>
-      </div>
-
-      <!-- Right Column (Sidebar / Latest) -->
-      <div class="lg:col-span-4 border-l border-outline-variant/30 pl-0 lg:pl-8">
-        <app-latest-news></app-latest-news>
-      </div>
-
-    </div>
+    <router-outlet></router-outlet>
   </main>
 
   <app-footer></app-footer>

@@ -3,26 +3,26 @@
     <div class="flex items-center justify-between h-16">
       
       <!-- Brand -->
-      <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer group">
+      <a routerLink="/" class="flex-shrink-0 flex items-center gap-2 cursor-pointer group">
         <lucide-angular name="globe" class="w-6 h-6 text-tertiary-fixed group-hover:rotate-180 transition-transform duration-700"></lucide-angular>
         <span class="font-display font-bold text-xl uppercase tracking-widest text-white">
           Economía<span class="text-tertiary-fixed font-light">Global</span>
         </span>
-      </div>
+      </a>
 
       <!-- Navigation -->
       <nav class="hidden md:flex space-x-1">
-        <a *ngFor="let cat of categories" href="#" class="text-sm font-medium text-white/80 hover:text-tertiary-fixed transition-colors px-4 py-5 border-b-2 border-transparent hover:border-tertiary-fixed">
+        <a *ngFor="let cat of categories" routerLink="/" class="text-sm font-medium text-white/80 hover:text-tertiary-fixed transition-colors px-4 py-5 border-b-2 border-transparent hover:border-tertiary-fixed cursor-pointer">
           {{ cat }}
         </a>
       </nav>
 
       <!-- Search / User -->
       <div class="flex items-center gap-4">
-        <button class="text-white/80 hover:text-white p-2 transition-colors">
+        <button routerLink="/" class="text-white/80 hover:text-white p-2 transition-colors cursor-pointer" title="Buscar (Próximamente)">
           <lucide-angular name="search" class="w-5 h-5"></lucide-angular>
         </button>
-        <button class="text-white/80 hover:text-white p-2 hidden sm:block transition-colors">
+        <button routerLink="/" class="text-white/80 hover:text-white p-2 hidden sm:block transition-colors cursor-pointer" title="Usuario (Próximamente)">
           <lucide-angular name="user" class="w-5 h-5"></lucide-angular>
         </button>
       </div>

@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { newsArticles } from '../../core/data';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-hero-article',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './hero-article.component.html'
 })
 export class HeroArticleComponent {
-  article = newsArticles.find(n => n.isFeatured);
+  @Input() article: any;
 }
